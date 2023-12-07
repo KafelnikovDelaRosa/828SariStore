@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>828 Home</title>
+        <title>828 Inventory</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,6 +24,7 @@
                         'all'=>'all',
                         'name'=>'name',
                         'itemid'=>'itemid',
+                        'price'=>'price',
                     ),
                     'category'=>$category,
                     'filter_selection'=>$level,
@@ -38,9 +39,9 @@
                     'total_entries'=>$total_entries,
                     'last_entries'=>$last_entries,
                     'table_name'=>'Inventory Summary',
-                    'table_headers'=>array('Itemid','Name','Image','Price','Stock','Status','Action'),
+                    'table_headers'=>array('Itemid','Name','Image','Quantity','Unit','Price','Stock','Status','Action'),
                     'root_url'=>'inventory',
-                    'entry_keys'=>array('itemid','name','image','price','stock','status'),
+                    'entry_keys'=>array('itemid','name','image','quantity','unit','price','stock','status'),
                     'entries' =>$entries
                 );
                 crud($config);

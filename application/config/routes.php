@@ -59,3 +59,6 @@ $route['shop']='Shop';
 $route['inventory/(:num)']='Inventory/index/$1';
 $route['inventory/search/(:any)/(:num)']='Inventory/search/$1/$2';
 $route['inventory/sortby/(:any)/(:num)']='Inventory/sortBy/$1/$2';
+$route['inventory/filter/(:any)/(:num)']='Inventory/filterBy/$1/$2';
+$route['inventory/add']='Inventory/addItem';
+$route['inventory/remove/id/(:num)']='Inventory/remove/$1';
