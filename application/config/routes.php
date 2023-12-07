@@ -54,3 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 //custom routes
 $route['Show/(:num)']='Show/index/$1';
+$route['home']='Home';
+$route['shop']='Shop';
+$route['inventory/(:num)']='Inventory/index/$1';
+$route['inventory/search/(:any)/(:num)']='Inventory/search/$1/$2';
+$route['inventory/sortby/(:any)/(:num)']='Inventory/sortBy/$1/$2';

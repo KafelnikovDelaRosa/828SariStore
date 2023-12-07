@@ -1,15 +1,113 @@
-#tag{
-    font-family:sans-serif;
-    font-size:3rem;
-    font-weight:light;
+:root{
+    --mar:rgb(149, 20, 41);
+    --inputbrd:#dee2e6;
+    --searchbg:#007bff;
+    --thbg:#c0bfbf;
 }
-form{
-    width:20%;
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
 }
-td{
+h2,a{
+    align-self:start;
+}
+main{
+    min-height:calc(100vh - 60px);
+}
+main section{
+    padding:1.5rem;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+main section .fields-container{
+    min-height:7rem;
+    margin-top:.5em;
+    width:100%;
+    padding:1rem;
+    border-radius: .6rem;
+    background-color:white;
+    box-shadow: 0 0.5rem 0.8rem rgba(0,0,0, .2);
+    display:flex;
+}
+.fields-container .fields{
+    width:90%;
+    display:flex;
+}
+.fields-container .fields .input-group{
+    border:none;
+    border:1px solid var(--inputbrd);
+    padding:.2 0 .2 0;
+}
+.fields-container .fields .field-group-search{
+    width:50%;   
+    padding:.4rem;
+}
+.fields-container .fields .field-group{
+    width:25%;
+    padding:.4rem;   
+}
+.fields-container .submit{
+    margin-top:1.2rem;
+    align-self:center;
+    justify-content:center;
+    width:10%;
+}
+.fields-container .submit .search-filter{
+    border:none;
+    padding:.17rem;
+    color:white;
+    border-radius: .2rem;;
+    background-color:var(--searchbg);
+}
+.table-container{
+    padding:1rem;
+    width:100%;
+    border-radius: .6rem;
+    height:42rem;
+    margin-top:1.5rem;
+    background-color:white;
+    box-shadow: 0 0.5rem 0.8rem rgba(0,0,0, .2);
+    display:flex;
+    flex-direction:column;
+}
+.table-container .table-content{
+    align-self:center;
+    width:100%;
+}
+.table-container .entry-container{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.table-container .table-content tr th{
     text-align:center;
+    padding:.4rem;
+    font-size:1rem;
+    font-weight:lighter;
+    border-bottom:1px solid var(--thbg);
 }
-td img{
-    width:100px;
-    height:100px;
+.table-container .table-content tr td{
+    text-align:center;
+    padding:.7rem;
+    font-weight:lighter;
+    border:1px solid var(--thbg);
+}
+.table-container .table-content tr td .option-action{
+    color:black;
+    transition:color ease-in-out;
+}
+.table-container .table-content tr td .option-action:hover{
+    color:var(--thbg);
+}
+h2 .header-link-group{
+    color:black;
+    text-decoration: none;
+    opacity:50%;
+    transition:opacity ease-in-out;
+}
+h2 .header-link-group:hover{
+    opacity:100%;
 }

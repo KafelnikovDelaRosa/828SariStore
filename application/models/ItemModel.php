@@ -14,61 +14,27 @@ class ItemModel extends CI_Model {
         );
         $this->db->insert('itemstb',$itemData);
     }
-    public function showItem($limit,$start){
+    public function getNoItems(){
         $this->load->database();
-        $this->db->limit($limit,$start);
-        $query=$this->db->get('itemstb');
-        $result=$query->result();
-        return $result; 
+        $result=$this->db->count_all_results('itemstb');
+        return $result;
     }
-    public function itemCount(){
+    public function getInventory($limit,$startingIndex){
         $this->load->database();
-        return $this->db->count_all('itemstb');
-    }
-    public function itemInfo(){
-        $this->load->database();
-        $itemid=$_POST["itemno"];
-        $this->db->where('itemid',$itemid);
+        $this->db->limit($limit,$startingIndex);
         $query=$this->db->get('itemstb');
         $result=$query->result();
         return $result;
     }
-    public function getItemId($id){
+    public function searchEntry($input,$limit,$startingIndex){
         $this->load->database();
-        $this->db->where('itemid',$id);
+        $this->db->group_start()
+            ->like('itemid',$input,'both')
+            ->or_like('name',$input,'both')
+        ->group_end();
+        $this->db->limit($limit,$startingIndex);
         $query=$this->db->get('itemstb');
         $result=$query->result();
         return $result;
-    }
-    public function removeItem(){
-        $this->load->database();
-        $itemid=$_POST["itemno"];
-        $this->db->where('itemid',$itemid);
-        $this->db->delete('itemstb');
-    }
-    public function updateItem($id){
-        $this->load->database();
-        $name=$_POST["name"];
-        $price=$_POST["cost"];
-        $stock=$_POST["stock"];
-        $this->db->set('name',$name);
-        $this->db->set('price',$price);
-        $this->db->set('stock',$stock);
-        $this->db->where('itemid',$id);
-        $this->db->update('itemstb');
-    }
-    public function restock($id){
-        $dbstock=0;
-        $stock=$_POST["stock"];
-        $this->load->database();
-        $this->db->select('stock');
-        $this->db->where('itemid',$id);
-        $query=$this->db->get('itemstb');
-        foreach($query->result() as $row){
-            $dbstock=$row->stock;
-        }
-        $this->db->set('stock',$stock+$dbstock);
-        $this->db->where('itemid',$id);
-        $this->db->update('itemstb');
     }
 }
